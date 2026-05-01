@@ -12,6 +12,6 @@ for (int i = 0; i < productos; i++)
 {
     for (int j = 0; j < dias; j++)
     {
-        Console.WriteLine();
+        Console.WriteLine(matriz);
     }
 }
