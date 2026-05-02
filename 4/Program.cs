@@ -1,18 +1,46 @@
 ﻿
 Console.WriteLine("CALIFICACIÓNES");
 
-Console.WriteLine("Ingrese los estudiantes...");
-int estudiante = int.Parse(Console.ReadLine());
+int estudiantes, evaluaciones;
 
-Console.WriteLine("Ingrese las evaluaciónes");
-int evaluaciones = int.Parse(Console.ReadLine());
+Console.Write("Estudiante: ");
+ 
+while (!int.TryParse(Console.ReadLine(), out estudiantes  ))
+{
+    Console.Write("Error: ");
+}
 
-int[,] matriz = new int[estudiante, evaluaciones];
+Console.Write("Evaluaciónes: ");
 
-for (int i = 0; i < estudiante; i++)
+while (!int.TryParse(Console.ReadLine(), out evaluaciones ))
+{
+    Console.Write("Error: ");
+}
+
+int[,] notas = new int[estudiantes, evaluaciones];
+
+for (int i = 0; i < estudiantes; i++)
 {
     for (int j = 0; j < evaluaciones; j++)
     {
-        
+        Console.Write($"Nota [{i},{j}]");
+        while( !int.TryParse(Console.ReadLine(), out notas[i,j]))
+        {
+            Console.Write("Error: ");
+        }
     }
 }
+
+int mayor = notas[0,0];
+
+for (int i = 0;i < estudiantes; i++)
+{
+    for (int j = 0; j < evaluaciones; j++)
+    {
+        if (notas[i, j] > mayor)
+        {
+            mayor = notas[i, j];    
+        }
+    }
+}
+Console.WriteLine("Mayor: " + mayor);
