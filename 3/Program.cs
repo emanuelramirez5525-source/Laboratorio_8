@@ -1,11 +1,30 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿int aptos, dias, suma = 0;
 
-Console.WriteLine("CONSUMO ELÉCTRICO TOTAL");
-Console.WriteLine("Ingrese el números de departamos");
-int departamento = int.Parse(Console.ReadLine());
+Console.Write("Apartamentos: ");
+while(!int.TryParse(Console.ReadLine(), out aptos) || aptos <=0)
+{
+    Console.Write("Error: ");
+}
 
-Console.WriteLine("Ingrese el número de días");
-int dias = int.Parse(Console.ReadLine());
+Console.Write("Dias: ");
+while (!int.TryParse(Console.ReadLine(),out dias) || dias <=0)
+{
+    Console.Write("Error: ");
+}
 
-int[,] matriz = new int [departamento, dias];
+int[,] consumo = new int[aptos, dias];
 
+for (int i = 0; i < aptos; i++)
+{
+    for (int j = 0; j < dias; j++)
+    {
+        Console.Write($"Consumo [{i}, {j}]");
+        while (!int.TryParse(Console.ReadLine(), out consumo[i, j]))
+            {
+            Console.Write("Error:  ");
+            }
+        suma += consumo[i, j];
+    }    
+}
+
+Console.WriteLine("Total: + " + suma);
