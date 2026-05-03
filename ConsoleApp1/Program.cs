@@ -15,7 +15,7 @@ while (!int.TryParse(Console.ReadLine(), out turnos) || turnos <= 0)
 
 int[,] produccion = new int[maquinas, turnos];
 
-for (int i = 0; i <maquinas; j++)
+for (int i = 0; i <maquinas; i++)
 {
     for (int j = 0; j < turnos; j++)
     {
